@@ -6,8 +6,10 @@ public class TickEvent implements Event<Ticks> {
 
     @Override
     public void invoke(Ticks simulation) {
-	// TODO Auto-generated method stub
+	final double TICKTIME = 1.0;
+	double time = simulation.getTime();
 
+	System.out.println("Tick at: " + time);
+	simulation.schedule(new TickEvent(), time + TICKTIME);
     }
-
 }

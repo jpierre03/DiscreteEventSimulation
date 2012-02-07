@@ -4,6 +4,12 @@ import simulation.Simulation;
 
 public class Ticks extends Simulation<Ticks> {
 
+    private double lim;
+
+    public Ticks(double lim) {
+	this.lim = lim;
+    }
+
     @Override
     public Ticks getState() {
 	return this;
@@ -11,14 +17,12 @@ public class Ticks extends Simulation<Ticks> {
 
     @Override
     public boolean stop() {
-	return false;
+	return this.getTime() >= lim;
     }
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
-
+	Ticks t = new Ticks(Double.parseDouble(args[0]));
+	t.schedule(new TickEvent(), 1.0);
+	t.simulate();
     }
-
 }

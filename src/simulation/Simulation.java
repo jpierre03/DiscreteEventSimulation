@@ -16,17 +16,20 @@ public abstract class Simulation<S> {
 	return time;
     }
 
-    protected void schedule(Event<S> e, double offset) {
+    public void schedule(Event<S> e, double offset) {
 	ScheduledEvent<S> sE = new ScheduledEvent<S>(e, offset);
 	diary.add(sE);
     }
 
     protected void simulate() {
-	while (diary.size() > 0) {
+	while (diary.size() > 0 || !stop()) {
+	    ScheduledEvent<S> e = diary.poll();
+	    time = e.getTime();
+
 	    if (!stop()) {
-		ScheduledEvent<S> e = diary.poll();
-		time = e.getTime();
 		e.getEvent().invoke(getState());
+	    } else {
+		break;
 	    }
 	}
     }
