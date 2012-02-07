@@ -1,17 +1,33 @@
 package simulation;
 
+import java.util.PriorityQueue;
+import java.util.Queue;
+
 public abstract class Simulation<S> {
 
-    abstract boolean stop();
+    double time = 0;
+    Queue<ScheduledEvent<S>> diary = new PriorityQueue<ScheduledEvent<S>>();
 
-    abstract S getState();
+    public abstract boolean stop();
 
-    void schedule(Event<S> e, double offset) {
+    public abstract S getState();
 
+    public double getTime() {
+	return time;
     }
 
-    void simulate() {
-
+    protected void schedule(Event<S> e, double offset) {
+	ScheduledEvent<S> sE = new ScheduledEvent<S>(e, offset);
+	diary.add(sE);
     }
 
+    protected void simulate() {
+	while (diary.size() > 0) {
+	    if (!stop()) {
+		ScheduledEvent<S> e = diary.poll();
+		time = e.getTime();
+		e.getEvent().invoke(getState());
+	    }
+	}
+    }
 }
