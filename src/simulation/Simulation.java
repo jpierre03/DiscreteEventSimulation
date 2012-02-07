@@ -5,8 +5,8 @@ import java.util.Queue;
 
 public abstract class Simulation<S> {
 
-    double time = 0;
-    Queue<ScheduledEvent<S>> diary = new PriorityQueue<ScheduledEvent<S>>();
+    private double time = 0;
+    private Queue<ScheduledEvent<S>> diary = new PriorityQueue<ScheduledEvent<S>>();
 
     public abstract boolean stop();
 
