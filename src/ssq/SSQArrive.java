@@ -10,13 +10,12 @@ public class SSQArrive implements Event<SingleServerQueue> {
         double newIATime = simulation.getRand();
 
         simulation.schedule(new SSQArrive(), time + newIATime);
+        simulation.setLength(simulation.getLength() + 1);
 
-        if (simulation.getLength() == 0) {
+        if (simulation.getLength() == 1) {
             simulation.schedule(new SSQDepart(), time
                     + SingleServerQueue.SERVICETIME);
         }
-
-        simulation.setLength(simulation.getLength() + 1);
 
         System.out.println("Arrival at: " + time + ", new population = "
                 + simulation.getLength());

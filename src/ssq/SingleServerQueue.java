@@ -38,13 +38,13 @@ public class SingleServerQueue extends Simulation<SingleServerQueue> {
     }
 
     public static void main(String[] args) {
-        SingleServerQueue q = new SingleServerQueue(Long.parseLong(args[0]),
-                Double.parseDouble(args[1]));
+        SingleServerQueue q =
+                new SingleServerQueue(Long.parseLong(args[0]),
+                        Double.parseDouble(args[1]));
 
         double firstIATime = q.getRand();
 
         q.schedule(new SSQArrive(), firstIATime);
-        q.schedule(new SSQDepart(), firstIATime + SERVICETIME);
         q.simulate();
         System.out.println("SIMULATION COMPLETE");
     }

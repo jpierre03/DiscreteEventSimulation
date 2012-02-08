@@ -6,20 +6,20 @@ public class ScheduledEvent<S> implements Comparable<ScheduledEvent<S>> {
     private double time;
 
     public ScheduledEvent(Event<S> event, double time) {
-	super();
-	this.event = event;
-	this.time = time;
+        super();
+        this.event = event;
+        this.time = time;
     }
 
     public final double getTime() {
-	return time;
+        return time;
     }
 
     public final Event<S> getEvent() {
-	return event;
+        return event;
     }
 
     public final int compareTo(ScheduledEvent<S> comparee) {
-	return Double.compare(time, comparee.time);
+        return Double.compare(time, comparee.time);
     }
 }
