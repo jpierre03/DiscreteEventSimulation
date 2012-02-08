@@ -6,7 +6,7 @@ import org.junit.runners.model.Statement;
 
 public class CatchExitRule implements MethodRule {
 
-    public Statement apply(final Statement base, FrameworkMethod method,
+    public final Statement apply(final Statement base, FrameworkMethod method,
 	    Object arg) {
 	return new Statement() {
 	    @Override

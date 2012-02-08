@@ -11,12 +11,12 @@ public class Ticks extends Simulation<Ticks> {
     }
 
     @Override
-    public Ticks getState() {
+    public final Ticks getState() {
 	return this;
     }
 
     @Override
-    public boolean stop() {
+    public final boolean stop() {
 	return this.getTime() >= lim;
     }
 

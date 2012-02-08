@@ -11,7 +11,7 @@ public class Print implements Event<Print3> {
     }
 
     @Override
-    public void invoke(Print3 simulation) {
+    public final void invoke(Print3 simulation) {
 	System.out.println("Event " + n + " invoked at time "
 		+ simulation.getTime());
     }

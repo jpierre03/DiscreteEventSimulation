@@ -11,15 +11,15 @@ public class ScheduledEvent<S> implements Comparable<ScheduledEvent<S>> {
 	this.time = time;
     }
 
-    public double getTime() {
+    public final double getTime() {
 	return time;
     }
 
-    public Event<S> getEvent() {
+    public final Event<S> getEvent() {
 	return event;
     }
 
-    public int compareTo(ScheduledEvent<S> comparee) {
+    public final int compareTo(ScheduledEvent<S> comparee) {
 	return Double.compare(time, comparee.time);
     }
 }

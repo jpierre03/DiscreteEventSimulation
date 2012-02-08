@@ -5,7 +5,7 @@ import simulation.Event;
 public class TickEvent implements Event<Ticks> {
 
     @Override
-    public void invoke(Ticks simulation) {
+    public final void invoke(Ticks simulation) {
 	final double TICKTIME = 1.0;
 	double time = simulation.getTime();
 

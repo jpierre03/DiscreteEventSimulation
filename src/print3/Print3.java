@@ -5,12 +5,12 @@ import simulation.Simulation;
 public class Print3 extends Simulation<Print3> {
 
     @Override
-    public boolean stop() {
+    public final boolean stop() {
 	return false;
     }
 
     @Override
-    public Print3 getState() {
+    public final Print3 getState() {
 	return this;
     }
 

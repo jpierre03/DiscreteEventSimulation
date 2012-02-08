@@ -11,7 +11,7 @@ public class CatchExitManager extends SecurityManager {
     }
 
     @Override
-    public void checkPermission(Permission perm) {
+    public final void checkPermission(Permission perm) {
         if (perm.getName().contains("exitVM")) {
             throw new SecurityException("System.exit called.");
         }
