@@ -9,6 +9,7 @@ public class SingleServerQueue extends Simulation<SingleServerQueue> {
     private Random rand;
     private int length = 0;
     static final double SERVICETIME = 0.25;
+    private int completions = 0;
 
     public SingleServerQueue(long seed, double lim) {
         this.lim = lim;
@@ -35,6 +36,14 @@ public class SingleServerQueue extends Simulation<SingleServerQueue> {
 
     public final void setLength(int n) {
         length = n;
+    }
+
+    public final int getComplete() {
+        return completions;
+    }
+
+    public final void setComplete(int n) {
+        completions = n;
     }
 
     public static void main(String[] args) {
