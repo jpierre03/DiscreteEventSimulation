@@ -17,7 +17,7 @@ public class SSQArrive implements Event<SingleServerQueue> {
                     + SingleServerQueue.SERVICETIME);
         }
 
-        System.out.println("Arrival at: " + time + ", new population = "
+        System.out.println("Arrival at " + time + ", new population = "
                 + simulation.getLength());
     }
 

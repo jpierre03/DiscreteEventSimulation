@@ -9,7 +9,7 @@ public class SSQDepart implements Event<SingleServerQueue> {
         double time = simulation.getTime();
 
         simulation.setLength(simulation.getLength() - 1);
-        System.out.println("Departure at: " + time + ", new population = "
+        System.out.println("Departure at " + time + ", new population = "
                 + simulation.getLength());
 
         if (simulation.getLength() > 0) {
